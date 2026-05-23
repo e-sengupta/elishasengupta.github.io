@@ -1,244 +1,295 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Elisha Sengupta Portfolio</title>
-    <style>
-        body {
-            font-family: Arial;
-            margin: 40px;
-            background-color: #f4f4f4;
-            color: #222;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elisha Sengupta | Electrical Engineering Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111c34;
+      --card-2: #16213d;
+      --text: #e5edf7;
+      --muted: #9fb0c5;
+      --accent: #64d8ff;
+      --accent-2: #7c3aed;
+      --border: rgba(255,255,255,0.1);
+      --shadow: 0 20px 60px rgba(0,0,0,0.28);
+    }
 
-        .box {
-            background: white;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-        }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top left, rgba(100,216,255,0.16), transparent 32%),
+                  radial-gradient(circle at 80% 20%, rgba(124,58,237,0.16), transparent 28%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-        h1 {
-            color: #003B5C;
-        }
-    </style>
+    a { color: inherit; text-decoration: none; }
+    .container { width: min(1120px, 92%); margin: auto; }
+
+    nav {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(18px);
+      background: rgba(15,23,42,0.78);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      height: 74px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-size: 1.35rem; font-weight: 800; color: var(--accent); letter-spacing: -0.04em; }
+    .nav-links { display: flex; gap: 1.6rem; font-weight: 600; color: var(--muted); }
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      min-height: 82vh; display: grid; place-items: center; text-align: center; padding: 5rem 0;
+    }
+    .eyebrow { color: var(--accent); font-weight: 700; margin-bottom: 1rem; }
+    .hero h1 {
+      font-size: clamp(3rem, 8vw, 6.6rem); line-height: 0.95; letter-spacing: -0.07em;
+      margin-bottom: 1.4rem;
+    }
+    .hero p { max-width: 760px; margin: 0 auto 2rem; color: var(--muted); font-size: 1.2rem; }
+    .hero-actions { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      padding: 0.9rem 1.25rem; border-radius: 14px; font-weight: 750; border: 1px solid var(--border);
+      display: inline-flex; align-items: center; gap: 0.5rem;
+    }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), #b8f7ff); color: #07111f; }
+    .btn.secondary { background: rgba(255,255,255,0.04); color: var(--text); }
+    .btn:hover { transform: translateY(-2px); transition: 0.2s ease; }
+
+    section { padding: 5rem 0; }
+    .section-title { margin-bottom: 2rem; }
+    .section-title span { color: var(--accent); font-weight: 800; font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; }
+    .section-title h2 { font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.05em; margin-top: 0.3rem; }
+
+    .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 1.4rem; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.055), rgba(255,255,255,0.025));
+      border: 1px solid var(--border); border-radius: 24px; padding: 1.6rem; box-shadow: var(--shadow);
+    }
+    .card p { color: var(--muted); }
+    .stats { display: grid; gap: 1rem; }
+    .stat { background: rgba(100,216,255,0.08); border: 1px solid rgba(100,216,255,0.22); border-radius: 18px; padding: 1rem; }
+    .stat strong { display: block; font-size: 1.4rem; color: var(--accent); }
+    .stat span { color: var(--muted); font-size: 0.95rem; }
+
+    .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+    .skill-card h3 { margin-bottom: 0.7rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.55rem; }
+    .tag { color: #cdefff; background: rgba(100,216,255,0.10); border: 1px solid rgba(100,216,255,0.22); padding: 0.38rem 0.65rem; border-radius: 999px; font-size: 0.9rem; }
+
+    .timeline { display: grid; gap: 1rem; }
+    .timeline-item { display: grid; grid-template-columns: 190px 1fr; gap: 1rem; }
+    .date { color: var(--accent); font-weight: 700; }
+    .timeline-item h3 { margin-bottom: 0.3rem; }
+    .timeline-item ul { color: var(--muted); padding-left: 1.2rem; }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    .project-card { position: relative; overflow: hidden; }
+    .project-card::before {
+      content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(100,216,255,0.12), rgba(124,58,237,0.08)); opacity: 0.8;
+      pointer-events: none;
+    }
+    .project-card > * { position: relative; }
+    .project-card h3 { font-size: 1.35rem; margin-bottom: 0.5rem; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1rem; }
+    .project-links a { color: var(--accent); font-weight: 750; }
+
+    .contact-card { text-align: center; max-width: 780px; margin: auto; }
+    .contact-card p { margin-bottom: 1.5rem; }
+
+    footer { border-top: 1px solid var(--border); padding: 2rem 0; color: var(--muted); text-align: center; }
+
+    @media (max-width: 850px) {
+      .nav-links { display: none; }
+      .about-grid, .projects-grid, .timeline-item { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 540px) { .skills-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
-
 <body>
+  <nav>
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Elisha Sengupta</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="box">
-    <h1>Elisha Sengupta</h1>
-    <p>Electrical Engineering Senior at UC San Diego</p>
-</div>
+  <header id="home" class="hero">
+    <div class="container">
+      <div class="eyebrow">Electrical Engineering Senior • UC San Diego</div>
+      <h1>Building intelligent hardware, circuits, and embedded systems.</h1>
+      <p>
+        I am an Electrical Engineering student focused on electronic circuits, autonomous systems,
+        embedded programming, and practical engineering design. My portfolio highlights hands-on projects
+        using ROS2, ESP32, CAD, sensors, motor control, and circuit simulation tools.
+      </p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#projects">View Projects</a>
+        <a class="btn secondary" href="#contact">Get In Touch</a>
+      </div>
+    </div>
+  </header>
 
-<div class="box">
-    <h2>Autonomous Vehicle Project</h2>
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <span>About Me</span>
+          <h2>Engineer with a hands-on design mindset.</h2>
+        </div>
+        <div class="about-grid">
+          <div class="card">
+            <p>
+              I am a senior Electrical Engineering student at UC San Diego with experience across embedded systems,
+              autonomous vehicles, analog/digital circuits, and engineering design. I enjoy turning classroom concepts
+              into working prototypes, from sensor-based robots to circuit simulations and PCB/CAD workflows.
+            </p>
+            <br />
+            <p>
+              I am currently looking for electrical engineering, embedded systems, hardware, and systems engineering
+              roles where I can contribute to real products while continuing to grow as an engineer.
+            </p>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>UCSD</strong><span>Electrical Engineering</span></div>
+            <div class="stat"><strong>Hardware + Software</strong><span>Circuits, sensors, controls, and code</span></div>
+            <div class="stat"><strong>Project-Based</strong><span>Robotics, ROS2, ESP32, CAD, and testing</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <h3>Autonomous Parking Robocar</h3>
-    <p>
-        Developed an autonomous navigation system for the UCSD Robocar platform
-        using ROS2, LiDAR, camera sensing, and motor control.
-    </p>
+    <section id="skills">
+      <div class="container">
+        <div class="section-title">
+          <span>Skills</span>
+          <h2>Technical toolkit</h2>
+        </div>
+        <div class="skills-grid">
+          <div class="card skill-card">
+            <h3>Programming</h3>
+            <div class="tags"><span class="tag">Python</span><span class="tag">C/C++</span><span class="tag">MATLAB</span><span class="tag">SystemVerilog</span><span class="tag">Arduino</span></div>
+          </div>
+          <div class="card skill-card">
+            <h3>Embedded & Robotics</h3>
+            <div class="tags"><span class="tag">ESP32</span><span class="tag">ROS2</span><span class="tag">OpenCV</span><span class="tag">Jetson Nano</span><span class="tag">Motor Control</span></div>
+          </div>
+          <div class="card skill-card">
+            <h3>Circuits & EDA</h3>
+            <div class="tags"><span class="tag">LTspice</span><span class="tag">Cadence Virtuoso</span><span class="tag">ADS</span><span class="tag">KiCad</span><span class="tag">Questa</span></div>
+          </div>
+          <div class="card skill-card">
+            <h3>Design & Fabrication</h3>
+            <div class="tags"><span class="tag">Onshape</span><span class="tag">SolidWorks</span><span class="tag">3D Printing</span><span class="tag">Laser Cutting</span><span class="tag">Soldering</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <p>
-        <b>Tools Used:</b> ROS2, Python, Docker, LiDAR, OAK-D Camera, Jetson Nano, VESC Motor Controller
-    </p>
+    <section id="experience">
+      <div class="container">
+        <div class="section-title">
+          <span>Experience</span>
+          <h2>Work and engineering experience</h2>
+        </div>
+        <div class="timeline">
+          <div class="card timeline-item">
+            <div class="date">Jul 2022 – Aug 2022</div>
+            <div>
+              <h3>Systems Engineering Intern — Arc Solutions</h3>
+              <ul>
+                <li>Supported networking and systems engineering tasks involving TCP/IP, telecom infrastructure, and regional internet exchange environments.</li>
+                <li>Assisted with monitoring, setup, and troubleshooting workflows for reliable network operations.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card timeline-item">
+            <div class="date">UC San Diego</div>
+            <div>
+              <h3>Electrical Engineering Coursework & Labs</h3>
+              <ul>
+                <li>Completed project-based work in autonomous vehicles, analog circuits, digital design, signal processing, and embedded systems.</li>
+                <li>Built and tested prototypes using sensors, microcontrollers, simulations, CAD models, and lab instruments.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <p>
-        <b>Objective Achieved:</b> Integrated perception and vehicle control so the car could detect objects,
-        respond to its environment, and perform autonomous driving behaviors.
-    </p>
+    <section id="projects">
+      <div class="container">
+        <div class="section-title">
+          <span>Projects</span>
+          <h2>Selected engineering projects</h2>
+        </div>
+        <div class="projects-grid">
+          <article class="card project-card">
+            <h3>Autonomous Parking Robocar</h3>
+            <p>Developed an autonomous navigation system for the UCSD Robocar platform using ROS2, LiDAR, camera sensing, and motor control. Integrated perception and vehicle control so the car could detect objects and respond to its environment.</p>
+            <div class="tags"><span class="tag">ROS2</span><span class="tag">Python</span><span class="tag">LiDAR</span><span class="tag">OAK-D Camera</span><span class="tag">VESC</span></div>
+            <div class="project-links"><a href="https://github.com/e-sengupta/elishasengupta.github.io" target="_blank">GitHub</a><a href="#" target="_blank">Demo Video</a></div>
+          </article>
 
-    <p>
-        <a href="https://github.com/UCSD-ECEMAE-148/final-project-repository-su25-team6" target="_blank">
-            View Project on GitHub
-        </a>
-    </p>
-    <p>
-        <a href="https://youtube.com/shorts/P1n3M7eJ62E?feature=share" target="_blank">
-            Watch ROS2 Parking Detection Video
-        </a>
-    </p>
+          <article class="card project-card">
+            <h3>Lane Following using ROS2</h3>
+            <p>Built a lane-following system where the car stayed inside lane boundaries using camera-based color detection. Filtered pixels and reduced background noise so the vehicle could drive within the lane in real time.</p>
+            <div class="tags"><span class="tag">ROS2</span><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Jetson Nano</span><span class="tag">OAK-D</span></div>
+            <div class="project-links"><a href="#" target="_blank">Demo Video</a></div>
+          </article>
 
-    <hr>
+          <article class="card project-card">
+            <h3>PID Control Line-Following Robocar</h3>
+            <p>Designed and tuned an ESP32-based line-following robot that uses photoresistors to calibrate black and white line readings. Potentiometers were used to adjust speed, P, I, and D values to improve performance on straight, loop, and curved paths.</p>
+            <div class="tags"><span class="tag">ESP32</span><span class="tag">PID Control</span><span class="tag">Photoresistors</span><span class="tag">Motor Drivers</span><span class="tag">Onshape</span></div>
+            <div class="project-links"><a href="https://github.com/e-sengupta/elishasengupta.github.io/blob/main/LineFollowingCode.ino" target="_blank">Code</a></div>
+          </article>
 
-    <h3>Lane Following using ROS2</h3>
-    <p>
-        Built a lane-following system where the car stayed inside lane boundaries using camera-based
-        color detection.
-    </p>
+          <article class="card project-card">
+            <h3>Analog & Digital Circuit Design Labs</h3>
+            <p>Completed circuit design and analysis projects involving op-amps, filters, frequency response, digital logic, transistor sizing, and simulation-based verification using tools such as LTspice, Cadence, and MATLAB.</p>
+            <div class="tags"><span class="tag">LTspice</span><span class="tag">Cadence</span><span class="tag">MATLAB</span><span class="tag">Filters</span><span class="tag">Digital Logic</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-    <p>
-        <b>Tools Used:</b> ROS2, Python, OpenCV, Jetson Nano, OAK-D Camera
-    </p>
+    <section id="contact">
+      <div class="container">
+        <div class="card contact-card">
+          <div class="section-title">
+            <span>Get In Touch</span>
+            <h2>Let’s connect.</h2>
+          </div>
+          <p>I am open to electrical engineering, embedded systems, hardware, systems engineering, and robotics opportunities.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="mailto:elishasengupta23@gmail.com">Email Me</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/www.linkedin.com/in/elisha-sengupta" target="_blank">LinkedIn</a>
+            <a class="btn secondary" href="https://github.com/e-sengupta" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    <p>
-        <b>Objective Achieved:</b> Detected lane colors, filtered pixels, and blurred background objects so the
-        vehicle could drive within the lane in real time.
-    </p>
-
-    <p>
-        <a href="https://youtu.be/1PQFCDAgCLs" target="_blank">
-            Watch Lane Following Video
-        </a>
-    </p>
-
-    <hr>
-
-    <h3>GPS Tower Navigation</h3>
-    <p>
-        Implemented autonomous navigation using GPS tower coordinate tracking.
-    </p>
-
-    <p>
-        <b>Tools Used:</b> ROS2, Python, GPS Localization, Autonomous Path Tracking
-    </p>
-
-    <p>
-        <b>Objective Achieved:</b> The car tracked the GPS tower location coordinates and followed the instructed
-        path independently without manual control.
-    </p>
-
-    <p>
-        <a href="https://youtu.be/_m8A5xOMwlc" target="_blank">
-            Watch GPS Navigation Video
-        </a>
-    </p>
-</div>
-    <div class="box">
-    <h2>PID Control Line Following Robocar</h2>
-
-    <p>
-        Designed and built an autonomous line-following robot using an ESP32 microcontroller,
-        PID control, custom hardware integration, and mechanical chassis design.
-    </p>
-
-    <p>
-        The robocar followed black-line obstacle paths including straight tracks,
-        circular loops, and swirly curved paths by using calibrated photoresistor
-        sensor readings and real-time PID motor control adjustments.
-    </p>
-
-    <p>
-        <b>Tools Used:</b> ESP32, Arduino IDE, PID Control, Soldering,
-        Breadboarding, Onshape CAD, 3D Printing, Laser Cutting
-    </p>
-
-    <p>
-        <b>Objective Achieved:</b> Successfully designed and tuned a robocar capable
-        of autonomously following multiple obstacle paths while maintaining stability
-        and speed through PID control optimization.
-    </p>
-
-    <hr>
-
-    <h3>Photoresistor Calibration System</h3>
-
-    <p>
-        Photoresistors were used to detect the difference between the white surface
-        and the black line during calibration.
-    </p>
-
-    <p>
-        The sensors were tuned to achieve a strong delta value between black and white
-        readings so the robot could reliably track the line during movement.
-    </p>
-
-    <p>
-        <img src="images/Photoresistors.png"
-             alt="Photoresistor calibration system"
-             width="400">
-    </p>
-
-    <hr>
-
-    <h3>Potentiometer PID Tuning System</h3>
-
-    <p>
-        Potentiometers were integrated into the system to allow real-time adjustment
-        of the robot’s speed and PID values.
-    </p>
-
-    <p>
-        This enabled tuning of the proportional (P), integral (I), and derivative (D)
-        gains to optimize the robot’s performance on different obstacle paths.
-    </p>
-
-    <p>
-        <img src="images/Potentiometers.png"
-             alt="Potentiometer PID tuning system"
-             width="400">
-    </p>
-
-    <hr>
-
-    <h3>Motor Driver Integration</h3>
-
-    <p>
-        Motor drivers were used to control wheel speed and direction based on the
-        PID controller output and sensor feedback.
-    </p>
-
-    <p>
-        The system enabled smooth steering corrections and stable autonomous motion
-        throughout the obstacle course.
-    </p>
-
-    <p>
-        <img src="images/Motor Drivers.png"
-             alt="Motor driver integration"
-             width="400">
-    </p>
-
-    <hr>
-
-    <h3>Prototype Development</h3>
-
-    <p>
-        Built and tested an early-stage robocar prototype using breadboarding,
-        temporary wiring, and rapid hardware iteration.
-    </p>
-
-    <p>
-        <img src="images/Prototype.jpg"
-             alt="Prototype robocar"
-             width="400">
-    </p>
-
-    <hr>
-
-    <h3>CAD Chassis Design</h3>
-
-    <p>
-        Designed the robocar chassis in Onshape before fabrication using laser cutting
-        and 3D printed components.
-    </p>
-
-    <p>
-        The design optimized placement for the ESP32, sensors, wheels, motor drivers,
-        and battery system.
-    </p>
-
-    <p>
-        <img src="images/CAD.png"
-             alt="CAD chassis design"
-             width="400">
-    </p>
-
-    <hr>
-
-    <h3>Arduino Control Code</h3>
-
-    <p>
-        Final Arduino code implementing sensor calibration, PID calculations,
-        and motor control logic for autonomous line following.
-    </p>
-
-    <p>
-        <a href="https://github.com/e-sengupta/elishasengupta.github.io/blob/main/LineFollowingCode.ino"
-           target="_blank">
-           View Arduino Code
-        </a>
-    </p>
-</div>
+  <footer>
+    <div class="container">© 2026 Elisha Sengupta. Built with HTML, CSS, and GitHub Pages.</div>
+  </footer>
 </body>
 </html>
