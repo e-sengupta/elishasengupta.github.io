@@ -1,36 +1,3 @@
-//Newest SP26
-/* ************************************************************************************************* */
-// UCSD ECE 5 Lab 4 Code: Line Following Robot with PID 
-// V 4.0
-// Last Modified 5/14/2025 by MingWei Yeoh, Korey Huynh, and Karcher Morris
-/* ************************************************************************************************* */
-
-/*
-   This is code for your PID controlled line following robot.
-
-   ******      Code Table of Contents      ******
-
-  - Line_Follower_Code_Basic
-   > Declare libraries     - declares global variables so each variable can be accessed from every function
-   > Declare Pins          - where the user sets what pin everything is connected to 
-   > Settings              - settings that can improve robot functionality and help to debug
-   > Setup (Main)          - runs once at beginning when you press button on arduino or when you open serial monitor
-   > Loop  (Main)          - loops forever calling on a series of function
-   
-  - Calibration 
-   > Main Calibrate()      - runs calibration function calls and synchronizes calibration state with different led animations
-   
-  - Helper_Functions
-   > setLEDs               - turns on all LEDs in the LED_Pin array on or off
-   > Read Potentiometers   - reads each potentiometer
-   > Read Photoresistors   - reads each photoresistor
-   > Run Motors            - runs motors
-   > Calculate Error       - calculate error from photoresistor readings
-   > PID Turn              - takes the error and implements PID control
-   > Print                 - used for printing information but should disable when not debugging because it slows down program
-
-*/
-
 // Include files needed
 #include <L298NX2.h> // Using "L298N" library found through arduino library manager developed by Andrea Lombardo (https://github.com/AndreaLombardo/L298N)
 
