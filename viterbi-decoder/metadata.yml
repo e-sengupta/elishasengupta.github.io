@@ -1,0 +1,14 @@
+---
+:id: 336052915
+:submitters:
+- :name: QINYI LI
+  :email: ax010113@acsmail.ucsd.edu
+- :name: Elisha Sengupta
+  :email: esengupta@ucsd.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2025-06-05 05:37:37.650939000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2025-06-04 22:37:37.650939000 Z
+:status: processed
+:score: 225.0
