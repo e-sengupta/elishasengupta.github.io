@@ -300,42 +300,100 @@
       </div>
     </section>
 
-    <section id="projects">
-      <div class="container">
-        <div class="section-title">
-          <span>Projects</span>
-          <h2>Selected engineering projects</h2>
+    ```html
+<section id="projects">
+  <div class="container">
+    <div class="section-title">
+      <span>Projects</span>
+      <h2>Selected engineering projects</h2>
+    </div>
+
+    <div class="projects-grid">
+
+      <article class="card project-card">
+        <h3>8-Bit Kogge-Stone Adder Design</h3>
+        <p>
+          Designed a high-performance 8-bit CMOS Kogge-Stone adder in Cadence Virtuoso, implementing custom transistor-level logic and critical-path optimization for high-speed arithmetic computation. Achieved a maximum operating frequency of 3765 MHz while meeting functionality, timing, and power requirements through transient simulation and verification.
+        </p>
+        <div class="tags">
+          <span class="tag">Cadence Virtuoso</span>
+          <span class="tag">ADE Explorer</span>
+          <span class="tag">45nm CMOS</span>
+          <span class="tag">VLSI</span>
+          <span class="tag">Linux</span>
         </div>
-        <div class="projects-grid">
-          <article class="card project-card">
-            <h3>Autonomous Parking Robocar</h3>
-            <p>Developed an autonomous navigation system for the UCSD Robocar platform using ROS2, LiDAR, camera sensing, and motor control. Integrated perception and vehicle control so the car could detect objects and respond to its environment.</p>
-            <div class="tags"><span class="tag">ROS2</span><span class="tag">Python</span><span class="tag">LiDAR</span><span class="tag">OAK-D Camera</span><span class="tag">VESC</span></div>
-            <div class="project-links"><a href="https://github.com/e-sengupta/elishasengupta.github.io" target="_blank">GitHub</a><a href="#" target="_blank">Demo Video</a></div>
-          </article>
-
-          <article class="card project-card">
-            <h3>Lane Following using ROS2</h3>
-            <p>Built a lane-following system where the car stayed inside lane boundaries using camera-based color detection. Filtered pixels and reduced background noise so the vehicle could drive within the lane in real time.</p>
-            <div class="tags"><span class="tag">ROS2</span><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Jetson Nano</span><span class="tag">OAK-D</span></div>
-            <div class="project-links"><a href="#" target="_blank">Demo Video</a></div>
-          </article>
-
-          <article class="card project-card">
-            <h3>PID Control Line-Following Robocar</h3>
-            <p>Designed and tuned an ESP32-based line-following robot that uses photoresistors to calibrate black and white line readings. Potentiometers were used to adjust speed, P, I, and D values to improve performance on straight, loop, and curved paths.</p>
-            <div class="tags"><span class="tag">ESP32</span><span class="tag">PID Control</span><span class="tag">Photoresistors</span><span class="tag">Motor Drivers</span><span class="tag">Onshape</span></div>
-            <div class="project-links"><a href="https://github.com/e-sengupta/elishasengupta.github.io/blob/main/LineFollowingCode.ino" target="_blank">Code</a></div>
-          </article>
-
-          <article class="card project-card">
-            <h3>Analog & Digital Circuit Design Labs</h3>
-            <p>Completed circuit design and analysis projects involving op-amps, filters, frequency response, digital logic, transistor sizing, and simulation-based verification using tools such as LTspice, Cadence, and MATLAB.</p>
-            <div class="tags"><span class="tag">LTspice</span><span class="tag">Cadence</span><span class="tag">MATLAB</span><span class="tag">Filters</span><span class="tag">Digital Logic</span></div>
-          </article>
+        <div class="project-links">
+          <a href="#" target="_blank">Video</a>
+          <a href="#" target="_blank">Documentation</a>
+          <a href="#" target="_blank">Code</a>
         </div>
-      </div>
-    </section>
+      </article>
+
+      <article class="card project-card">
+        <h3>Autonomous Vehicle Development</h3>
+        <p>
+          Designed, trained, and deployed an autonomous robot using DonkeyCar, ROS2, and Jetson Nano for deep learning-based navigation and GPS waypoint control. Completed multiple autonomous laps in simulation and on physical hardware using computer vision, embedded Linux, and RTK GNSS. Led final project implementing autonomous parking through ROS2 path planning, PID control, and GNSS waypoint navigation.
+        </p>
+        <div class="tags">
+          <span class="tag">ROS2</span>
+          <span class="tag">DonkeyCar</span>
+          <span class="tag">Jetson Nano</span>
+          <span class="tag">RTK GNSS</span>
+          <span class="tag">OpenCV</span>
+          <span class="tag">PID Control</span>
+        </div>
+        <div class="project-links">
+          <a href="#" target="_blank">Video</a>
+          <a href="#" target="_blank">Documentation</a>
+          <a href="#" target="_blank">Code</a>
+        </div>
+      </article>
+
+      <article class="card project-card">
+        <h3>Viterbi Decoder Hardware Implementation</h3>
+        <p>
+          Designed and implemented a convolutional encoder and Viterbi decoder architecture in SystemVerilog, incorporating Branch Metric Computation, Add-Compare-Select, trellis memory, and traceback units for error-correcting communication systems. Synthesized and verified the design through RTL simulation, waveform analysis, and resource utilization testing.
+        </p>
+        <div class="tags">
+          <span class="tag">SystemVerilog</span>
+          <span class="tag">ModelSim</span>
+          <span class="tag">QuestaSim</span>
+          <span class="tag">Intel Quartus Prime</span>
+          <span class="tag">FPGA Synthesis</span>
+          <span class="tag">RTL Verification</span>
+        </div>
+        <div class="project-links">
+          <a href="#" target="_blank">Video</a>
+          <a href="#" target="_blank">Documentation</a>
+          <a href="#" target="_blank">Code</a>
+        </div>
+      </article>
+
+      <article class="card project-card">
+        <h3>PID Control Robot Design</h3>
+        <p>
+          Built a functional line-following robot that demonstrated stable movement and improved tracking. Designed the robot’s hardware and software, programmed the control logic using Arduino IDE, designed the chassis using CAD, and assembled the circuit through breadboarding and soldering on a protoboard.
+        </p>
+        <div class="tags">
+          <span class="tag">Arduino IDE</span>
+          <span class="tag">PID Control</span>
+          <span class="tag">CAD Design</span>
+          <span class="tag">Breadboarding</span>
+          <span class="tag">Soldering</span>
+          <span class="tag">Protoboard</span>
+        </div>
+        <div class="project-links">
+          <a href="#" target="_blank">Video</a>
+          <a href="#" target="_blank">Documentation</a>
+          <a href="#" target="_blank">Code</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
 
     <section id="contact">
       <div class="container">
